@@ -25,9 +25,9 @@
   // Rows are 1-8 as printed on the panel.
   const SYNTH_CLIPS = [
     { track: T.BASS, row: 1, name: 'катящийся бас на ля', notes: bass(N.A1) },
-    { track: T.BASS, row: 2, name: 'бас с октавой', notes: bass(N.A1, { 8: N.A2, 16: N.E2 }) },
-    { track: T.BASS, row: 3, name: 'бас на си-бемоль (напряжение)', notes: bass(N.Bb1) },
-    { track: T.BASS, row: 4, name: 'бас для пика', notes: bass(N.A1, { 4: N.A2, 12: N.A2, 16: N.C2 }) },
+    { track: T.BASS, row: 2, from: 1, name: 'бас с октавой', notes: bass(N.A1, { 8: N.A2, 16: N.E2 }) },
+    { track: T.BASS, row: 3, from: 1, name: 'бас на си-бемоль (напряжение)', notes: bass(N.Bb1) },
+    { track: T.BASS, row: 4, from: 1, name: 'бас для пика', notes: bass(N.A1, { 4: N.A2, 12: N.A2, 16: N.C2 }) },
 
     { track: T.ACID1, row: 1, name: 'кислотный намёк', notes: [
       [1, N.A2, ''], [4, N.A2, ''], [7, N.A2, 'a'], [11, N.A2, ''], [14, N.Bb2, ''] ] },
@@ -76,7 +76,7 @@
 
   // Drum-type clips: steps only; 'a' needs the Pattern view.
   const DRUM_CLIPS = [
-    { track: T.KICK, row: 4, name: 'бочка для пика', steps: [[1, ''], [5, ''], [9, ''], [13, '']] },
+    { track: T.KICK, row: 4, from: 1, name: 'бочка для пика', steps: [[1, ''], [5, ''], [9, ''], [13, '']] },
     { track: T.FX, row: 3, name: 'удар с тарелкой на сильную долю', steps: [[1, '']] },
     { track: T.FX, row: 5, name: 'подъём (райзер) для брейка', steps: [[1, 'a']] },
   ];
@@ -89,10 +89,12 @@
   const KIT_CLIPS = [
     { row: 2, name: 'хэты с открытым на слабую долю и клэп', lanes: [
       [LANE.CP, [5, 13]], [LANE.CH, CLOSED], [LANE.OH, OFFBEATS] ] },
-    { row: 3, name: 'то же с дробью малого в конце такта', lanes: [
-      [LANE.OH, OFFBEATS], [LANE.CH, CLOSED], [LANE.CP, [5, 13]], [LANE.SD, [13, 14, 15, 15, 16, 16]] ] },
-    { row: 4, name: 'полный набор для пика: акцент, райд', lanes: [
-      [LANE.AC, BEATS], [LANE.CP, [5, 13]], [LANE.CH, CLOSED], [LANE.OH, OFFBEATS], [LANE.RC, BEATS] ] },
+    { row: 3, from: 2, name: 'то же с дробью малого в конце такта', lanes: [
+      [LANE.OH, OFFBEATS], [LANE.CH, CLOSED], [LANE.CP, [5, 13]], [LANE.SD, [13, 14, 15, 15, 16, 16]] ],
+      added: [[LANE.SD, [13, 14, 15, 15, 16, 16]]] },
+    { row: 4, from: 2, name: 'полный набор для пика: акцент, райд', lanes: [
+      [LANE.AC, BEATS], [LANE.CP, [5, 13]], [LANE.CH, CLOSED], [LANE.OH, OFFBEATS], [LANE.RC, BEATS] ],
+      added: [[LANE.AC, BEATS], [LANE.RC, BEATS]] },
   ];
 
   const loc = row => row - 1;                 // bank A: location = row index
@@ -105,6 +107,21 @@
       this.len = {};        // "loc/track" -> length
       this.types = {};      // track -> 0 synth, 1 drum, 2 kit
       this.gate = {};
+      this.last = {};       // track -> the pitch last entered (newer firmware)
+    }
+    // What a clip copy does: one track's steps, kit steps and length.
+    copy(track, from, to, kit) {
+      for (let st = 0; st < 16; st++) {
+        const src = this.steps[from + '/' + track + '/' + st];
+        if (src) this.steps[to + '/' + track + '/' + st] = Object.assign({}, src);
+        else delete this.steps[to + '/' + track + '/' + st];
+        if (kit) {
+          const word = this.kit[from + '/' + st];
+          if (word) this.kit[to + '/' + st] = word.slice(); else delete this.kit[to + '/' + st];
+        }
+      }
+      if (this.len[from + '/' + track]) this.len[to + '/' + track] = this.len[from + '/' + track];
+      else delete this.len[to + '/' + track];
     }
     step(location, track, step0) {
       const key = location + '/' + track + '/' + step0;
@@ -129,7 +146,13 @@
   }
 
   class Script {
-    constructor(seed) {
+    constructor(seed, options) {
+      // fw2: the firmware starts a new step at the track's last note and can
+      // copy a clip (hold a pad, press another pad of the track).
+      this.fw2 = !!(options && options.fw2);
+      // keys: the firmware also reads a MIDI keyboard, and the artist has one:
+      // a held step takes its pitch from a key instead of an encoder turn.
+      this.keys = this.fw2 && !!(options && options.keys);
       this.t = 0;                 // cursor, microseconds of device time
       this.actions = [];
       this.model = new Model();
@@ -162,6 +185,13 @@
       this.wait(620);
       this.up(ctl);
       this.wait(this.human(140));
+    }
+    // One key of the MIDI keyboard, pressed and let go.
+    key(note) {
+      this.push({ op: 'key', note, velocity: 100, down: true });
+      this.wait(this.human(90));
+      this.push({ op: 'key', note, velocity: 0, down: false });
+      this.wait(this.human(50));
     }
     click(enc, dir) {
       for (let e = 0; e < 4; e++) {
@@ -236,7 +266,9 @@
   // Holds up to four steps with one hand and edits them with the other.
   function holdEdit(s, location, track, steps0, target, wantAccent, wantSlide) {
     const first = s.model.step(location, track, steps0[0]);
-    const current = first.note || (s.model.types[track] === 1 ? 0 : 60);
+    const drum = s.model.types[track] === 1;
+    const fresh = drum ? 0 : s.fw2 ? (s.model.last[track] === undefined ? 60 : s.model.last[track]) : 60;
+    const current = first.note || fresh;
     const delta = target === null ? 0 : target - current;
     const flipAccent = first.accent !== wantAccent;
     const flipSlide = first.slide !== wantSlide;
@@ -248,7 +280,8 @@
     } else {
       for (const st of steps0) { s.down(STEP(st + 1)); s.wait(30); }
       s.wait(80);
-      if (delta) s.turnNumber(TRACK_ENC, delta);
+      if (delta && s.keys && !drum) s.key(target);
+      else if (delta) s.turnNumber(TRACK_ENC, delta);
       if (flipAccent) s.tap(TRACK_SW, 90, 90);
       if (flipSlide) s.long(TRACK_SW);
       for (const st of steps0) { s.up(STEP(st + 1)); s.wait(25); }
@@ -261,6 +294,22 @@
       m.accent = wantAccent;
       m.slide = wantSlide;
     }
+    if (s.fw2 && delta && !drum) s.model.last[track] = target;
+  }
+
+  // Hold the source pad past the long-press time, press the target pad.
+  function copyClip(s, track, fromRow, toRow) {
+    s.say('device', 'Копия клипа: держать пэд ряда ' + fromRow + ' полсекунды и нажать пэд ряда ' + toRow +
+      ' той же дорожки (' + TRACK_NAME[track] + ')');
+    s.down(PAD(track, fromRow));
+    s.wait(620);
+    s.down(PAD(track, toRow));
+    s.wait(s.human(70));
+    s.up(PAD(track, toRow));
+    s.wait(30);
+    s.up(PAD(track, fromRow));
+    s.wait(s.human(160));
+    s.model.copy(track, loc(fromRow), loc(toRow), track === T.KIT);
   }
 
   // Splits steps that get the same edit into handfuls of neighbouring buttons.
@@ -286,20 +335,30 @@
 
   function programSynth(s, clip) {
     const location = loc(clip.row);
-    s.say('device', TRACK_NAME[clip.track] + ', ряд ' + clip.row + ': ' + clip.name +
-      ' — пэд, TRACK нажать (экран паттерна), затем держать шаги и крутить TRACK');
-    s.tap(PAD(clip.track, clip.row), 70, 140);
+    const copied = s.fw2 && clip.from;
+    if (copied) {
+      copyClip(s, clip.track, clip.from, clip.row);     // the focus is on the copy now
+      s.say('device', TRACK_NAME[clip.track] + ', ряд ' + clip.row + ': ' + clip.name + ' — правятся только отличия');
+    } else {
+      s.say('device', TRACK_NAME[clip.track] + ', ряд ' + clip.row + ': ' + clip.name +
+        ' — пэд, TRACK нажать (экран паттерна), затем держать шаги и крутить TRACK');
+      s.tap(PAD(clip.track, clip.row), 70, 140);
+    }
     setLength(s, clip);
     s.tap(TRACK_SW, 80, 180);                 // Pattern view on the focus
+    // Steps that get the same edit from the same starting point go together.
     const groups = new Map();
     for (const [step, note, flags] of clip.notes) {
-      const key = note + '/' + flags;
-      if (!groups.has(key)) groups.set(key, { note, flags, steps: [] });
+      const m = s.model.step(location, clip.track, step - 1);
+      const accent = flags.includes('a'), slide = flags.includes('s');
+      if (m.active && m.note === note && m.accent === accent && m.slide === slide) continue;
+      const key = note + '/' + flags + '/' + m.note + '/' + m.accent + '/' + m.slide + '/' + m.active;
+      if (!groups.has(key)) groups.set(key, { note, accent, slide, steps: [] });
       groups.get(key).steps.push(step - 1);
     }
     for (const g of groups.values()) {
       for (const hand of handfuls(g.steps)) {
-        holdEdit(s, location, clip.track, hand, g.note, g.flags.includes('a'), g.flags.includes('s'));
+        holdEdit(s, location, clip.track, hand, g.note, g.accent, g.slide);
       }
     }
     s.long(TRACK_SW);                         // back to the Session view
@@ -307,6 +366,10 @@
 
   function programDrum(s, clip) {
     const location = loc(clip.row);
+    if (s.fw2 && clip.from) {
+      copyClip(s, clip.track, clip.from, clip.row);
+      return;
+    }
     s.say('device', TRACK_NAME[clip.track] + ', ряд ' + clip.row + ': ' + clip.name +
       ' — пэд, затем кнопки шагов');
     s.tap(PAD(clip.track, clip.row), 70, 140);
@@ -328,8 +391,10 @@
     const location = loc(clip.row);
     s.say('device', '909, ряд ' + clip.row + ': ' + clip.name +
       ' — TRACK идёт по дорожкам кита, кнопки шагов ставят удары');
-    s.tap(PAD(T.KIT, clip.row), 70, 140);
-    for (const [lane, steps] of clip.lanes) {
+    const copied = s.fw2 && clip.from;
+    if (copied) copyClip(s, T.KIT, clip.from, clip.row);
+    else s.tap(PAD(T.KIT, clip.row), 70, 140);
+    for (const [lane, steps] of copied ? clip.added : clip.lanes) {
       s.turnChoice(TRACK_ENC, lane - s.lane);
       s.lane = lane;
       s.say('device', 'Дорожка кита ' + LANE_NAME[lane]);
@@ -354,7 +419,9 @@
 
   function prepare(s) {
     s.say('info', 'ПОДГОТОВКА. Прибор только что включён: в памяти заводская бочка и хэты. ' +
-      'Копирования клипов на приборе нет, поэтому каждый клип набирается руками.');
+      (s.keys ? 'К входу MIDI подключена клавиатура: высоту нот артист берёт с неё, держа шаг.'
+        : s.fw2 ? 'Клипы копируются удержанием пэда, новый шаг берёт последнюю ноту дорожки.'
+        : 'Копирования клипов на приборе нет, поэтому каждый клип набирается руками.'));
     s.say('rig', 'На синтезаторах: фильтры кислот прикрыты, чтобы было что открывать');
     s.rig('acid1.cutoff', 0.22);
     s.rig('acid1.resonance', 0.72);
@@ -364,6 +431,7 @@
     s.rig('reverb.level', 0.3);
     s.wait(400);
     s.model.types = { 0: 1, 1: 2, 2: 0, 3: 0, 4: 1, 5: 1, 6: 1, 7: 1 };
+    for (const st of [0, 4, 8, 12]) Object.assign(s.model.step(0, T.KICK, st), { active: true, note: 36 });   // the factory kick
     setTempo(s);
     configureTracks(s);
     for (const clip of SYNTH_CLIPS.filter(c => c.track === T.BASS)) programSynth(s, clip);
@@ -578,8 +646,8 @@
   }
 
   // The whole show as a sorted list of actions.
-  function buildShow(seed) {
-    const s = new Script(seed || 20261117);
+  function buildShow(seed, options) {
+    const s = new Script(seed || 20261117, options);
     s.wait(600);
     prepare(s);
     const prepEnd = s.t;
@@ -615,6 +683,9 @@
         case 'play': device.play(action.down, action.t); break;
         case 'encsw': device.encoderSwitch(action.enc, action.down, action.t); break;
         case 'edge': device.encoderEdge(action.enc, action.dir, action.t); break;
+        case 'key':
+          device.midiIn(action.down ? [0x90, action.note, action.velocity] : [0x80, action.note, 0], action.t);
+          break;
       }
       if (!io) continue;
       if (action.op === 'rig') { if (io.rig) hands.at(action.t, () => io.rig(action.id, action.value, action.ramp)); }

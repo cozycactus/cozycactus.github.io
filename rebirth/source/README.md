@@ -5,7 +5,9 @@ compiled to WebAssembly (`../core.js`). This folder is the complete
 corresponding source of that build, under the GNU General Public License v3.0
 (see `LICENSE`).
 
-- `src/`, `include/`: the firmware, unmodified (commit 20125c2 of its repository).
+- `src/`, `include/`: the firmware, unmodified, as of commit fef66b2 of its
+  repository (branch `claude/midi-in`: `master` plus the last-note rule, clip
+  copy, the piano-roll Pattern view and note entry from a MIDI keyboard).
 - `test/fakes/`: host-side stand-ins for the Pico SDK headers.
 - `sim/core/`: the virtual board around the firmware.
 - `sim/build.sh`: builds the native core and, with Emscripten, `core.js`.

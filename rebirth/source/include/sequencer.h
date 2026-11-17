@@ -249,6 +249,10 @@ void pattern_toggle_step(pattern_t *p, uint8_t track, uint8_t step);
 void pattern_copy(pattern_t *dst, const pattern_t *src);
 void pattern_clear(pattern_t *p);
 void pattern_clear_track(pattern_t *p, uint8_t track);
+// Copies one track's steps, kit steps and effective length from src to dst.
+// The track configuration is not copied. No-op for an invalid track or
+// dst == src.
+void pattern_copy_track(pattern_t *dst, const pattern_t *src, uint8_t track);
 void pattern_shift(pattern_t *p, int8_t direction);
 void pattern_shift_track(pattern_t *p, uint8_t track, int8_t direction);
 uint8_t pattern_get_track_length(const pattern_t *p, uint8_t track);
@@ -355,6 +359,12 @@ void midi_buf_clear(void);
 void midi_buf_flush(void);
 void midi_buf_note_on(uint8_t channel, uint8_t note, uint8_t velocity);
 void midi_buf_note_off(uint8_t channel, uint8_t note);
+// The DIN input. The UART interrupt (core 0) pushes every byte it receives into a ring;
+// the main loop on core 0 takes them out. No lock. Under MOCK_HARDWARE there is no input.
+#define MIDI_IN_RING_SIZE 64    // a power of two
+bool midi_in_read(uint8_t *byte);       // false when the ring is empty
+uint32_t midi_in_dropped(void);         // bytes that found the ring full, counted since boot
+void midi_in_flush(void);               // empties the ring, leaves the dropped count
 
 // cv_gate.c
 void cv_gate_init(void);
