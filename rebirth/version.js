@@ -1,1 +1,1 @@
-window.SIM_BUILD = {"commit":"0dd3c49a7fafe8235b740d8e2c1a84f478ce79f9","short":"0dd3c49","date":"2026-11-17T10:58:51+02:00","subject":"Merge pull request #17 from cozycactus/claude/pad-keys","dirty":false,"features":7,"emscripten":"7.0.0"};
+window.SIM_BUILD = {"commit":"bcf6871e88875ca09eaf08f4728e711ee5ec3b4b","short":"bcf6871","date":"2026-11-17T11:34:28+02:00","subject":"Merge pull request #13 from cozycactus/session-panel-mcp-scan","dirty":false,"features":7,"emscripten":"7.0.0"};

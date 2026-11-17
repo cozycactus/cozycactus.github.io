@@ -5,8 +5,8 @@ compiled to WebAssembly (`../core.js`). This folder is the complete
 corresponding source of that build, under the GNU General Public License v3.0
 (see `LICENSE`).
 
-- Built from commit 0dd3c49a7fafe8235b740d8e2c1a84f478ce79f9 of the firmware repository
-  (branch `master`, 2026-11-17: "Merge pull request #17 from cozycactus/claude/pad-keys"), with Emscripten 7.0.0,
+- Built from commit bcf6871e88875ca09eaf08f4728e711ee5ec3b4b of the firmware repository
+  (branch `master`, 2026-11-17: "Merge pull request #13 from cozycactus/session-panel-mcp-scan"), with Emscripten 7.0.0,
   by `sim/build.sh web` and checked by `sim/check.sh`.
 - `src/`, `include/`: the firmware, unmodified.
 - `test/fakes/`: host-side stand-ins for the Pico SDK headers.
