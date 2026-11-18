@@ -1,1 +1,1 @@
-window.SIM_BUILD = {"commit":"c8ce7f6c5cd78aaf2a7eeddde89637eedad20e78","short":"c8ce7f6","date":"2026-11-18T20:45:49+02:00","subject":"Add SH-101 voices, original ROM controller, and diode selection","dirty":false,"features":7,"emscripten":"7.0.0"};
+window.SIM_BUILD = {"commit":"2604e0fd6efae2003a398ba5c11a0cae10ae592c","short":"2604e0f","date":"2026-11-18T21:00:23+02:00","subject":"Keep SH-101 black keys above focused white keys","dirty":false,"features":7,"emscripten":"7.0.0"};
