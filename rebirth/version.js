@@ -1,1 +1,1 @@
-window.SIM_BUILD = {"commit":"78f57bcc8c8afd00cffa3989ca3b56da5d5f2688","short":"78f57bc","date":"2026-11-19T00:18:47+02:00","subject":"Control all sounding MIDI parts from the channel panel","dirty":false,"features":7,"emscripten":"7.0.0"};
+window.SIM_BUILD = {"commit":"ab706f35eb3e64629e7892c0a552ea98ca62299b","short":"ab706f3","date":"2026-11-19T00:21:05+02:00","subject":"Hide the individual gain slider in channel-wide SH-101 mode","dirty":false,"features":7,"emscripten":"7.0.0"};

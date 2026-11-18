@@ -5,8 +5,8 @@ compiled to WebAssembly (`../core.js`). This folder is the complete
 corresponding source of that build, under the GNU General Public License v3.0
 (see `LICENSE`).
 
-- Built from commit 78f57bcc8c8afd00cffa3989ca3b56da5d5f2688 of the firmware repository
-  (branch `master`, 2026-11-19: "Control all sounding MIDI parts from the channel panel"), with Emscripten 7.0.0,
+- Built from commit ab706f35eb3e64629e7892c0a552ea98ca62299b of the firmware repository
+  (branch `master`, 2026-11-19: "Hide the individual gain slider in channel-wide SH-101 mode"), with Emscripten 7.0.0,
   by `sim/build.sh web` and checked by `sim/check.sh`.
 - `src/`, `include/`: the firmware, unmodified.
 - `test/fakes/`: host-side stand-ins for the Pico SDK headers.
