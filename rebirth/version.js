@@ -1,1 +1,1 @@
-window.SIM_BUILD = {"commit":"2bf542b08021edd8f0bba40ad7e960801d6f3279","short":"2bf542b","date":"2026-11-18T22:47:52+02:00","subject":"Add Roland SH-101 pitch reference and calibration checks","dirty":false,"features":7,"emscripten":"7.0.0"};
+window.SIM_BUILD = {"commit":"ddd3f39fe6130155d76445106da5b142fad293bd","short":"ddd3f39","date":"2026-11-19T00:13:05+02:00","subject":"Play native CV/Gate songs and add a 64-track MIDI Song player","dirty":false,"features":7,"emscripten":"7.0.0"};

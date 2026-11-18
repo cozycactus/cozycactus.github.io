@@ -5,8 +5,8 @@ compiled to WebAssembly (`../core.js`). This folder is the complete
 corresponding source of that build, under the GNU General Public License v3.0
 (see `LICENSE`).
 
-- Built from commit 2bf542b08021edd8f0bba40ad7e960801d6f3279 of the firmware repository
-  (branch `master`, 2026-11-18: "Add Roland SH-101 pitch reference and calibration checks"), with Emscripten 7.0.0,
+- Built from commit ddd3f39fe6130155d76445106da5b142fad293bd of the firmware repository
+  (branch `master`, 2026-11-19: "Play native CV/Gate songs and add a 64-track MIDI Song player"), with Emscripten 7.0.0,
   by `sim/build.sh web` and checked by `sim/check.sh`.
 - `src/`, `include/`: the firmware, unmodified.
 - `test/fakes/`: host-side stand-ins for the Pico SDK headers.
