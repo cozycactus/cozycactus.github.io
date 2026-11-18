@@ -1,1 +1,1 @@
-window.SIM_BUILD = {"commit":"ddd3f39fe6130155d76445106da5b142fad293bd","short":"ddd3f39","date":"2026-11-19T00:13:05+02:00","subject":"Play native CV/Gate songs and add a 64-track MIDI Song player","dirty":false,"features":7,"emscripten":"7.0.0"};
+window.SIM_BUILD = {"commit":"78f57bcc8c8afd00cffa3989ca3b56da5d5f2688","short":"78f57bc","date":"2026-11-19T00:18:47+02:00","subject":"Control all sounding MIDI parts from the channel panel","dirty":false,"features":7,"emscripten":"7.0.0"};
