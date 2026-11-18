@@ -5,8 +5,8 @@ compiled to WebAssembly (`../core.js`). This folder is the complete
 corresponding source of that build, under the GNU General Public License v3.0
 (see `LICENSE`).
 
-- Built from commit e72a788c22de34ab8ed60019f3e524a01fa53af9 of the firmware repository
-  (branch `master`, 2026-11-19: "Keep MIDI Song pad faces unmarked like the ReBirth panel"), with Emscripten 7.0.0,
+- Built from commit d91d7eda4acfdec3fdde18ce1424a36e885b6dfb of the firmware repository
+  (branch `master`, 2026-11-19: "Expand the native ReBirth clip sequencer to 64 tracks"), with Emscripten 7.0.0,
   by `sim/build.sh web` and checked by `sim/check.sh`.
 - `src/`, `include/`: the firmware, unmodified.
 - `test/fakes/`: host-side stand-ins for the Pico SDK headers.

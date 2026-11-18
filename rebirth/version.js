@@ -1,1 +1,1 @@
-window.SIM_BUILD = {"commit":"e72a788c22de34ab8ed60019f3e524a01fa53af9","short":"e72a788","date":"2026-11-19T00:31:08+02:00","subject":"Keep MIDI Song pad faces unmarked like the ReBirth panel","dirty":false,"features":7,"emscripten":"7.0.0"};
+window.SIM_BUILD = {"commit":"d91d7eda4acfdec3fdde18ce1424a36e885b6dfb","short":"d91d7ed","date":"2026-11-19T00:58:34+02:00","subject":"Expand the native ReBirth clip sequencer to 64 tracks","dirty":false,"features":7,"emscripten":"7.0.0"};
