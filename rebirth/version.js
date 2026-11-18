@@ -1,1 +1,1 @@
-window.SIM_BUILD = {"commit":"edffa61a81a545c6abe14b8551525d6045b096b3","short":"edffa61","date":"2026-11-18T22:16:09+02:00","subject":"Give each SH-101 channel its own ROM and front panel","dirty":false,"features":7,"emscripten":"7.0.0"};
+window.SIM_BUILD = {"commit":"93cf3151e224f0ce8596b44d8715a3fcb91b9059","short":"93cf315","date":"2026-11-18T22:24:53+02:00","subject":"Match the SH-101 controls and service test to Roland notes","dirty":false,"features":7,"emscripten":"7.0.0"};
