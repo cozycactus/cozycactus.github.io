@@ -96,16 +96,6 @@
   /* ─── Mini mixer ─── */
   .mixer { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 4px; margin-bottom: 12px; }
   #midi-song-tracks { max-height: 16rem; overflow: auto; }
-  .pad[data-midi-track]::after {
-    content: attr(data-midi-track);
-    position: absolute;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    color: #092c26;
-    font: 700 1.4cqw system-ui, sans-serif;
-    pointer-events: none;
-  }
   .sh101-transport [hidden] { display: none !important; }
   .strip { display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 6px 2px; border: 1px solid var(--line);
     border-radius: 8px; background: #191b22; min-width: 0; }
@@ -563,17 +553,17 @@
 </div>
 
 <div id="tip" hidden></div>
-<script src="version.js?v=ab706f3"></script>
-<script src="core.js?v=ab706f3"></script>
-<script src="device.js?v=ab706f3"></script>
-<script src="artist.js?v=ab706f3"></script>
-<script src="midi_songs.js?v=ab706f3"></script>
-<script src="dsp.js?v=ab706f3"></script>
-<script src="acid.js?v=ab706f3"></script>
-<script src="sh101.js?v=ab706f3"></script>
-<script src="sh101_cpu.js?v=ab706f3"></script>
-<script src="sh101_rom.js?v=ab706f3"></script>
-<script src="rig.js?v=ab706f3"></script>
-<script src="app.js?v=ab706f3"></script>
+<script src="version.js?v=e72a788"></script>
+<script src="core.js?v=e72a788"></script>
+<script src="device.js?v=e72a788"></script>
+<script src="artist.js?v=e72a788"></script>
+<script src="midi_songs.js?v=e72a788"></script>
+<script src="dsp.js?v=e72a788"></script>
+<script src="acid.js?v=e72a788"></script>
+<script src="sh101.js?v=e72a788"></script>
+<script src="sh101_cpu.js?v=e72a788"></script>
+<script src="sh101_rom.js?v=e72a788"></script>
+<script src="rig.js?v=e72a788"></script>
+<script src="app.js?v=e72a788"></script>
 </body>
 </html>

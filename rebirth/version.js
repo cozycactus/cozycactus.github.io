@@ -1,1 +1,1 @@
-window.SIM_BUILD = {"commit":"ab706f35eb3e64629e7892c0a552ea98ca62299b","short":"ab706f3","date":"2026-11-19T00:21:05+02:00","subject":"Hide the individual gain slider in channel-wide SH-101 mode","dirty":false,"features":7,"emscripten":"7.0.0"};
+window.SIM_BUILD = {"commit":"e72a788c22de34ab8ed60019f3e524a01fa53af9","short":"e72a788","date":"2026-11-19T00:31:08+02:00","subject":"Keep MIDI Song pad faces unmarked like the ReBirth panel","dirty":false,"features":7,"emscripten":"7.0.0"};
