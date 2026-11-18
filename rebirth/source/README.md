@@ -5,20 +5,22 @@ compiled to WebAssembly (`../core.js`). This folder is the complete
 corresponding source of that build, under the GNU General Public License v3.0
 (see `LICENSE`).
 
-- Built from commit bcf6871e88875ca09eaf08f4728e711ee5ec3b4b of the firmware repository
-  (branch `master`, 2026-11-17: "Merge pull request #13 from cozycactus/session-panel-mcp-scan"), with Emscripten 7.0.0,
+- Built from commit c8ce7f6c5cd78aaf2a7eeddde89637eedad20e78 of the firmware repository
+  (branch `master`, 2026-11-18: "Add SH-101 voices, original ROM controller, and diode selection"), with Emscripten 7.0.0,
   by `sim/build.sh web` and checked by `sim/check.sh`.
 - `src/`, `include/`: the firmware, unmodified.
 - `test/fakes/`: host-side stand-ins for the Pico SDK headers.
 - `sim/core/`: the virtual board around the firmware.
-- `sim/build.sh`: builds the native core and, with Emscripten, `core.js`.
+- `sim/sh101/`: the SH-101 MCS-48 decoder and virtual board (`../sh101_cpu.js`).
+  The Roland ROM image is supplied locally by the user.
+- `sim/build.sh`: builds the native core and the two WebAssembly modules.
 - `sim/test/`, `sim/check.sh`: checks. The Node checks load the page scripts
   from `sim/web/`: copy `index.html` and the `.js` files from one level up
   into `sim/web/` first (without the `?v=` the page adds to their names).
 - `sim/README.md`: what is real, what is modelled, and what the simulator does not show.
 
-The page scripts (`app.js`, `artist.js`, `device.js`, `rig.js`, `acid.js`) are
-served as written, one level up. `dsp.js` there is the x0xb0x filter model from
+The page scripts (`app.js`, `artist.js`, `device.js`, `rig.js`, `acid.js`,
+`sh101.js`, `sh101_rom.js`) are served as written, one level up. `dsp.js` there is the x0xb0x filter model from
 [x0xb0x VCF Bench](https://github.com/cozycactus/x0xb0x-vcf-bench), copied
 unchanged from its commit 8384696 (CC0). `manual-ru.pdf` is the user manual.
 

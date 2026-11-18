@@ -1,1 +1,1 @@
-window.SIM_BUILD = {"commit":"bcf6871e88875ca09eaf08f4728e711ee5ec3b4b","short":"bcf6871","date":"2026-11-17T11:34:28+02:00","subject":"Merge pull request #13 from cozycactus/session-panel-mcp-scan","dirty":false,"features":7,"emscripten":"7.0.0"};
+window.SIM_BUILD = {"commit":"c8ce7f6c5cd78aaf2a7eeddde89637eedad20e78","short":"c8ce7f6","date":"2026-11-18T20:45:49+02:00","subject":"Add SH-101 voices, original ROM controller, and diode selection","dirty":false,"features":7,"emscripten":"7.0.0"};
