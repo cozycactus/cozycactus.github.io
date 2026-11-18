@@ -5,14 +5,15 @@ compiled to WebAssembly (`../core.js`). This folder is the complete
 corresponding source of that build, under the GNU General Public License v3.0
 (see `LICENSE`).
 
-- Built from commit 2604e0fd6efae2003a398ba5c11a0cae10ae592c of the firmware repository
-  (branch `master`, 2026-11-18: "Keep SH-101 black keys above focused white keys"), with Emscripten 7.0.0,
+- Built from commit 256407069a8fc1ca05e4848004ba94a8f666afb9 of the firmware repository
+  (branch `master`, 2026-11-18: "Load the SH-101 ROM on page startup"), with Emscripten 7.0.0,
   by `sim/build.sh web` and checked by `sim/check.sh`.
 - `src/`, `include/`: the firmware, unmodified.
 - `test/fakes/`: host-side stand-ins for the Pico SDK headers.
 - `sim/core/`: the virtual board around the firmware.
 - `sim/sh101/`: the SH-101 MCS-48 decoder and virtual board (`../sh101_cpu.js`).
-  The Roland ROM image is supplied locally by the user.
+  The page fetches the Roland ROM from a pinned upstream GitHub revision and
+  checks its SHA-256. The file picker is available if the download fails.
 - `sim/build.sh`: builds the native core and the two WebAssembly modules.
 - `sim/test/`, `sim/check.sh`: checks. The Node checks load the page scripts
   from `sim/web/`: copy `index.html` and the `.js` files from one level up

@@ -1,1 +1,1 @@
-window.SIM_BUILD = {"commit":"2604e0fd6efae2003a398ba5c11a0cae10ae592c","short":"2604e0f","date":"2026-11-18T21:00:23+02:00","subject":"Keep SH-101 black keys above focused white keys","dirty":false,"features":7,"emscripten":"7.0.0"};
+window.SIM_BUILD = {"commit":"256407069a8fc1ca05e4848004ba94a8f666afb9","short":"2564070","date":"2026-11-18T21:13:11+02:00","subject":"Load the SH-101 ROM on page startup","dirty":false,"features":7,"emscripten":"7.0.0"};
