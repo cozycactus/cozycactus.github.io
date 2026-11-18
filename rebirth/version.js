@@ -1,1 +1,1 @@
-window.SIM_BUILD = {"commit":"93cf3151e224f0ce8596b44d8715a3fcb91b9059","short":"93cf315","date":"2026-11-18T22:24:53+02:00","subject":"Match the SH-101 controls and service test to Roland notes","dirty":false,"features":7,"emscripten":"7.0.0"};
+window.SIM_BUILD = {"commit":"2bf542b08021edd8f0bba40ad7e960801d6f3279","short":"2bf542b","date":"2026-11-18T22:47:52+02:00","subject":"Add Roland SH-101 pitch reference and calibration checks","dirty":false,"features":7,"emscripten":"7.0.0"};
