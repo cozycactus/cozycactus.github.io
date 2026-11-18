@@ -5,8 +5,8 @@ compiled to WebAssembly (`../core.js`). This folder is the complete
 corresponding source of that build, under the GNU General Public License v3.0
 (see `LICENSE`).
 
-- Built from commit 256407069a8fc1ca05e4848004ba94a8f666afb9 of the firmware repository
-  (branch `master`, 2026-11-18: "Load the SH-101 ROM on page startup"), with Emscripten 7.0.0,
+- Built from commit 302556ec9b9cecd49bf180f679d6987ecaabdf06 of the firmware repository
+  (branch `master`, 2026-11-18: "Route ARP through SH-101 and expose hardware performance controls"), with Emscripten 7.0.0,
   by `sim/build.sh web` and checked by `sim/check.sh`.
 - `src/`, `include/`: the firmware, unmodified.
 - `test/fakes/`: host-side stand-ins for the Pico SDK headers.
