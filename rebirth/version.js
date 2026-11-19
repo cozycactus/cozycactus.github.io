@@ -1,1 +1,1 @@
-window.SIM_BUILD = {"commit":"d91d7eda4acfdec3fdde18ce1424a36e885b6dfb","short":"d91d7ed","date":"2026-11-19T00:58:34+02:00","subject":"Expand the native ReBirth clip sequencer to 64 tracks","dirty":false,"features":7,"emscripten":"7.0.0"};
+window.SIM_BUILD = {"commit":"ad7d51d548e4033d8c73213e29852322b17ff708","short":"ad7d51d","date":"2026-11-19T04:32:55+02:00","subject":"Publish the Twisted MIDI library in the ReBirth simulator","dirty":false,"features":7,"emscripten":"7.0.0"};
