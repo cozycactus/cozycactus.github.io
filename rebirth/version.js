@@ -1,1 +1,1 @@
-window.SIM_BUILD = {"commit":"9ea3018cdbf5ea9e9cad484862e27e3bef5bdf6e","short":"9ea3018","date":"2026-11-19T23:45:37+02:00","subject":"Merge pull request #20 from cozycactus/claude/quant-mutes","dirty":false,"features":15,"emscripten":"7.0.0"};
+window.SIM_BUILD = {"commit":"2fcc47e089c8c58b81fd7a5da76444633cbb2670","short":"2fcc47e","date":"2026-11-20T01:24:38+02:00","subject":"Merge pull request #19 from cozycactus/claude/ext-clock","dirty":false,"features":31,"emscripten":"7.0.0"};
