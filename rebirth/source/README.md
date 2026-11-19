@@ -5,8 +5,8 @@ compiled to WebAssembly (`../core.js`). This folder is the complete
 corresponding source of that build, under the GNU General Public License v3.0
 (see `LICENSE`).
 
-- Built from commit ae8b83fdd155910f21d125b2c33205c86224f5f2 of the firmware repository
-  (branch `master`, 2026-11-19: "Fix shared song playback on iPhone"), with Emscripten 7.0.0,
+- Built from commit 9ea3018cdbf5ea9e9cad484862e27e3bef5bdf6e of the firmware repository
+  (branch `master`, 2026-11-19: "Merge pull request #20 from cozycactus/claude/quant-mutes"), with Emscripten 7.0.0,
   by `sim/build.sh web` and checked by `sim/check.sh`.
 - `src/`, `include/`: the firmware, unmodified.
 - `test/fakes/`: host-side stand-ins for the Pico SDK headers.

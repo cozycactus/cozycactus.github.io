@@ -1,1 +1,1 @@
-window.SIM_BUILD = {"commit":"ae8b83fdd155910f21d125b2c33205c86224f5f2","short":"ae8b83f","date":"2026-11-19T05:07:50+02:00","subject":"Fix shared song playback on iPhone","dirty":false,"features":7,"emscripten":"7.0.0"};
+window.SIM_BUILD = {"commit":"9ea3018cdbf5ea9e9cad484862e27e3bef5bdf6e","short":"9ea3018","date":"2026-11-19T23:45:37+02:00","subject":"Merge pull request #20 from cozycactus/claude/quant-mutes","dirty":false,"features":15,"emscripten":"7.0.0"};
