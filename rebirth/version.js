@@ -1,1 +1,1 @@
-window.SIM_BUILD = {"commit":"ad7d51d548e4033d8c73213e29852322b17ff708","short":"ad7d51d","date":"2026-11-19T04:32:55+02:00","subject":"Publish the Twisted MIDI library in the ReBirth simulator","dirty":false,"features":7,"emscripten":"7.0.0"};
+window.SIM_BUILD = {"commit":"ae8b83fdd155910f21d125b2c33205c86224f5f2","short":"ae8b83f","date":"2026-11-19T05:07:50+02:00","subject":"Fix shared song playback on iPhone","dirty":false,"features":7,"emscripten":"7.0.0"};
