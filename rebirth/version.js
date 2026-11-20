@@ -1,1 +1,1 @@
-window.SIM_BUILD = {"commit":"2fcc47e089c8c58b81fd7a5da76444633cbb2670","short":"2fcc47e","date":"2026-11-20T01:24:38+02:00","subject":"Merge pull request #19 from cozycactus/claude/ext-clock","dirty":false,"features":31,"emscripten":"7.0.0"};
+window.SIM_BUILD = {"commit":"f8a873730902565528577a75bb46b5491be3f5d9","short":"f8a8737","date":"2026-11-20T02:41:22+02:00","subject":"Merge pull request #22 from cozycactus/claude/revb-board","dirty":false,"features":31,"emscripten":"7.0.0"};
