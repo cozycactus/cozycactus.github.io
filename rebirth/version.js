@@ -1,1 +1,1 @@
-window.SIM_BUILD = {"commit":"f8a873730902565528577a75bb46b5491be3f5d9","short":"f8a8737","date":"2026-11-20T02:41:22+02:00","subject":"Merge pull request #22 from cozycactus/claude/revb-board","dirty":false,"features":31,"emscripten":"7.0.0"};
+window.SIM_BUILD = {"commit":"9d9562d94b2c36388bd26822873310e6085486b5","short":"9d9562d","date":"2026-11-20T03:37:50+02:00","subject":"Merge pull request #27 from cozycactus/claude/hallucinogen-pads-sim","dirty":false,"features":31,"emscripten":"7.0.0"};

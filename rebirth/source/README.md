@@ -5,8 +5,8 @@ compiled to WebAssembly (`../core.js`). This folder is the complete
 corresponding source of that build, under the GNU General Public License v3.0
 (see `LICENSE`).
 
-- Built from commit f8a873730902565528577a75bb46b5491be3f5d9 of the firmware repository
-  (branch `master`, 2026-11-20: "Merge pull request #22 from cozycactus/claude/revb-board"), with Emscripten 7.0.0,
+- Built from commit 9d9562d94b2c36388bd26822873310e6085486b5 of the firmware repository
+  (branch `master`, 2026-11-20: "Merge pull request #27 from cozycactus/claude/hallucinogen-pads-sim"), with Emscripten 7.0.0,
   by `sim/build.sh web` and checked by `sim/check.sh`.
 - `src/`, `include/`: the firmware, unmodified.
 - `test/fakes/`: host-side stand-ins for the Pico SDK headers.
