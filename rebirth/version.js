@@ -1,1 +1,1 @@
-window.SIM_BUILD = {"commit":"9d9562d94b2c36388bd26822873310e6085486b5","short":"9d9562d","date":"2026-11-20T03:37:50+02:00","subject":"Merge pull request #27 from cozycactus/claude/hallucinogen-pads-sim","dirty":false,"features":31,"emscripten":"7.0.0"};
+window.SIM_BUILD = {"commit":"f7f11a2852e4af8d297362127a80f53f25855cdd","short":"f7f11a2","date":"2026-11-23T19:02:44+02:00","subject":"Merge pull request #29 from cozycactus/claude/midi-wire-model","dirty":false,"features":31,"emscripten":"7.0.0"};
