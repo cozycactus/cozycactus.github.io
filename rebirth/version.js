@@ -1,1 +1,1 @@
-window.SIM_BUILD = {"commit":"50e44633e9712c660c52893c5bdbe18141a264ae","short":"50e4463","date":"2026-11-23T20:35:13+02:00","subject":"Merge pull request #26 from cozycactus/claude/ext-clock-out-timing","dirty":false,"features":31,"emscripten":"7.0.0"};
+window.SIM_BUILD = {"commit":"f1202c24febd35e4b015bf8f95daf6f1e4acdbd4","short":"f1202c2","date":"2026-11-23T21:02:35+02:00","subject":"Merge pull request #30 from cozycactus/claude/rebirth-verify-skill","dirty":false,"features":31,"emscripten":"7.0.0"};
