@@ -5,8 +5,8 @@ compiled to WebAssembly (`../core.js`). This folder is the complete
 corresponding source of that build, under the GNU General Public License v3.0
 (see `LICENSE`).
 
-- Built from commit f7f11a2852e4af8d297362127a80f53f25855cdd of the firmware repository
-  (branch `master`, 2026-11-23: "Merge pull request #29 from cozycactus/claude/midi-wire-model"), with Emscripten 7.0.0,
+- Built from commit 50e44633e9712c660c52893c5bdbe18141a264ae of the firmware repository
+  (branch `master`, 2026-11-23: "Merge pull request #26 from cozycactus/claude/ext-clock-out-timing"), with Emscripten 7.0.0,
   by `sim/build.sh web` and checked by `sim/check.sh`.
 - `src/`, `include/`: the firmware, unmodified.
 - `test/fakes/`: host-side stand-ins for the Pico SDK headers.

@@ -1,1 +1,1 @@
-window.SIM_BUILD = {"commit":"f7f11a2852e4af8d297362127a80f53f25855cdd","short":"f7f11a2","date":"2026-11-23T19:02:44+02:00","subject":"Merge pull request #29 from cozycactus/claude/midi-wire-model","dirty":false,"features":31,"emscripten":"7.0.0"};
+window.SIM_BUILD = {"commit":"50e44633e9712c660c52893c5bdbe18141a264ae","short":"50e4463","date":"2026-11-23T20:35:13+02:00","subject":"Merge pull request #26 from cozycactus/claude/ext-clock-out-timing","dirty":false,"features":31,"emscripten":"7.0.0"};
