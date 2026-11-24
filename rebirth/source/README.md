@@ -5,8 +5,8 @@ compiled to WebAssembly (`../core.js`). This folder is the complete
 corresponding source of that build, under the GNU General Public License v3.0
 (see `LICENSE`).
 
-- Built from commit f1202c24febd35e4b015bf8f95daf6f1e4acdbd4 of the firmware repository
-  (branch `master`, 2026-11-23: "Merge pull request #30 from cozycactus/claude/rebirth-verify-skill"), with Emscripten 7.0.0,
+- Built from commit 86975bc6eeae8c3f3775bc47766cb2fe671ec1d7 of the firmware repository
+  (branch `master`, 2026-11-24: "Merge pull request #24 from cozycactus/claude/sim-hands"), with Emscripten 7.0.0,
   by `sim/build.sh web` and checked by `sim/check.sh`.
 - `src/`, `include/`: the firmware, unmodified.
 - `test/fakes/`: host-side stand-ins for the Pico SDK headers.
@@ -19,11 +19,16 @@ corresponding source of that build, under the GNU General Public License v3.0
   from `sim/web/`: copy `index.html` and the `.js` files from one level up
   into `sim/web/` first (without the `?v=` the page adds to their names).
 - `sim/README.md`: what is real, what is modelled, and what the simulator does not show.
+- `sim/vendor/`: how `three.js` and `handmodel.js` one level up are built.
 
 The page scripts (`app.js`, `artist.js`, `device.js`, `rig.js`, `acid.js`,
-`sh101.js`, `sh101_rom.js`) are served as written, one level up. `dsp.js` there is the x0xb0x filter model from
+`sh101.js`, `sh101_rom.js`, `handrig.js`, `handplan.js`, `handlayer.js`) are
+served as written, one level up. `dsp.js` there is the x0xb0x filter model from
 [x0xb0x VCF Bench](https://github.com/cozycactus/x0xb0x-vcf-bench), copied
-unchanged from its commit 8384696 (CC0). `manual-ru.pdf` is the user manual.
+unchanged from its commit 8384696 (CC0). `three.js` (three.js 0.187.0, MIT) and
+`handmodel.js` (the hands of Godot XR Tools, CC0) are built from other people's
+work by the scripts in `sim/vendor/`; `notices.txt` beside the page holds
+their notices. `manual-ru.pdf` is the user manual.
 
 Behaviour of the original ReBirth RB-338 is taken from
 [OpenRB-338](https://github.com/pingw33n/openrb-338) (also GPL-3.0).

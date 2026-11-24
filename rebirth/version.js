@@ -1,1 +1,1 @@
-window.SIM_BUILD = {"commit":"f1202c24febd35e4b015bf8f95daf6f1e4acdbd4","short":"f1202c2","date":"2026-11-23T21:02:35+02:00","subject":"Merge pull request #30 from cozycactus/claude/rebirth-verify-skill","dirty":false,"features":31,"emscripten":"7.0.0"};
+window.SIM_BUILD = {"commit":"86975bc6eeae8c3f3775bc47766cb2fe671ec1d7","short":"86975bc","date":"2026-11-24T23:55:15+02:00","subject":"Merge pull request #24 from cozycactus/claude/sim-hands","dirty":false,"features":31,"emscripten":"7.0.0"};

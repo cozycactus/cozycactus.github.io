@@ -29,6 +29,7 @@
   #device .face { position: absolute; left: 6.8%; right: 6.8%; top: 4.9%; bottom: 4.6%; background: var(--panel);
     border-radius: 0.4cqw; box-shadow: inset 0 0 0 0.15cqw #2a2b30, 0 0.6cqw 1.6cqw rgba(0,0,0,.5); }
   #device .at { position: absolute; }
+  .handsgl { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; }
   #device .label { position: absolute; transform: translate(-50%, -50%); color: #e9e9ea; font-size: 1.05cqw;
     font-weight: 600; letter-spacing: .04em; white-space: nowrap; pointer-events: none; }
   #oled-frame { background: #0b0c0f; border: 0.15cqw solid #33353b; border-radius: 0.3cqw; padding: 0.9cqw 1cqw; }
@@ -363,6 +364,9 @@
         <select id="prep-speed" data-tip="Во сколько раз ускорить подготовку. Сам сет всегда идёт в настоящем времени."><option value="8">×8</option><option value="16" selected>×16</option><option value="40">×40</option></select>
       </div>
       <div class="row" style="margin-top:8px">
+        <label data-tip="Две руки играют на приборе то, что делает артист. По умолчанию выключено: кружок под пальцем, как раньше; браузер запомнит выбор. Если включить руки впервые во время сета, они появятся в следующем. На странице, открытой с диска, руки рисуются облегчённо: там синтезаторы считаются в основном потоке, и руки могут их задержать."><input type="checkbox" id="show-hands"> показывать руки</label>
+      </div>
+      <div class="row" style="margin-top:8px">
         <label for="show-variant">Как артист набирает клипы:</label>
         <select id="show-variant"
           data-tip="Способ ввода нот. Доступны только те, что умеет прошивка внутри симулятора: партитура для другой прошивки на ней сбилась бы.">
@@ -570,18 +574,18 @@
 </div>
 
 <div id="tip" hidden></div>
-<script src="version.js?v=f1202c2"></script>
-<script src="core.js?v=f1202c2"></script>
-<script src="device.js?v=f1202c2"></script>
-<script src="artist.js?v=f1202c2"></script>
-<script src="midi_songs.js?v=f1202c2"></script>
-<script src="midi_clips.js?v=f1202c2"></script>
-<script src="dsp.js?v=f1202c2"></script>
-<script src="acid.js?v=f1202c2"></script>
-<script src="sh101.js?v=f1202c2"></script>
-<script src="sh101_cpu.js?v=f1202c2"></script>
-<script src="sh101_rom.js?v=f1202c2"></script>
-<script src="rig.js?v=f1202c2"></script>
-<script src="app.js?v=f1202c2"></script>
+<script src="version.js?v=86975bc"></script>
+<script src="core.js?v=86975bc"></script>
+<script src="device.js?v=86975bc"></script>
+<script src="artist.js?v=86975bc"></script>
+<script src="midi_songs.js?v=86975bc"></script>
+<script src="midi_clips.js?v=86975bc"></script>
+<script src="dsp.js?v=86975bc"></script>
+<script src="acid.js?v=86975bc"></script>
+<script src="sh101.js?v=86975bc"></script>
+<script src="sh101_cpu.js?v=86975bc"></script>
+<script src="sh101_rom.js?v=86975bc"></script>
+<script src="rig.js?v=86975bc"></script>
+<script src="app.js?v=86975bc"></script>
 </body>
 </html>
