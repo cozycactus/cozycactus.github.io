@@ -1,1 +1,1 @@
-window.SIM_BUILD = {"commit":"9687120c840c6109a37c909e283a7ab56227a42e","short":"9687120","date":"2026-11-25T04:41:49+02:00","subject":"Merge pull request #32 from cozycactus/claude/song-384","dirty":false,"features":31,"emscripten":"7.0.0"};
+window.SIM_BUILD = {"commit":"a90fd9f920b6e52cf0ba0e64bd449aaace443eac","short":"a90fd9f","date":"2026-11-25T14:09:41+02:00","subject":"Merge pull request #33 from cozycactus/claude/song-list-tempo","dirty":false,"features":31,"emscripten":"7.0.0"};
