@@ -1,1 +1,1 @@
-window.SIM_BUILD = {"commit":"c70c7aaf55c89eae82e8180888816262a4de818a","short":"c70c7aa","date":"2026-11-25T04:29:08+02:00","subject":"Merge pull request #31 from cozycactus/claude/sham-live","dirty":false,"features":31,"emscripten":"7.0.0"};
+window.SIM_BUILD = {"commit":"9687120c840c6109a37c909e283a7ab56227a42e","short":"9687120","date":"2026-11-25T04:41:49+02:00","subject":"Merge pull request #32 from cozycactus/claude/song-384","dirty":false,"features":31,"emscripten":"7.0.0"};

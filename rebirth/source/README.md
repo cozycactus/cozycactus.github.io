@@ -5,8 +5,8 @@ compiled to WebAssembly (`../core.js`). This folder is the complete
 corresponding source of that build, under the GNU General Public License v3.0
 (see `LICENSE`).
 
-- Built from commit c70c7aaf55c89eae82e8180888816262a4de818a of the firmware repository
-  (branch `master`, 2026-11-25: "Merge pull request #31 from cozycactus/claude/sham-live"), with Emscripten 7.0.0,
+- Built from commit 9687120c840c6109a37c909e283a7ab56227a42e of the firmware repository
+  (branch `master`, 2026-11-25: "Merge pull request #32 from cozycactus/claude/song-384"), with Emscripten 7.0.0,
   by `sim/build.sh web` and checked by `sim/check.sh`.
 - `src/`, `include/`: the firmware, unmodified.
 - `test/fakes/`: host-side stand-ins for the Pico SDK headers.
